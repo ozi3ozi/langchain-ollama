@@ -58,10 +58,10 @@ export default function Home() {
   }, []);
 
   function getInitialModel() {
-    fetch("http://localhost:11434/api/tags")
+    fetch("http://142.93.40.117:11434/api/tags")
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setAvailableModels(data.models);
 
         // get initial model from local storage
@@ -76,7 +76,7 @@ export default function Home() {
         ) {
           setActiveModel(storedModel);
           const newOllama = new ChatOllama({
-            baseUrl: "http://localhost:11434",
+            baseUrl: "http://142.93.40.117:11434",
             model: storedModel,
           });
           setOllama(newOllama);
@@ -84,7 +84,7 @@ export default function Home() {
           // set initial model to first model in list
           setActiveModel(data.models[0]?.name);
           const initOllama = new ChatOllama({
-            baseUrl: "http://localhost:11434",
+            baseUrl: "http://142.93.40.117:11434",
             model: data.models[0]?.name,
           });
           setOllama(initOllama);
@@ -286,8 +286,8 @@ export default function Home() {
 
   function getName(input: string) {
     const nameOllama = new ChatOllama({
-      baseUrl: "http://localhost:11434",
-      model: "llama2",
+      baseUrl: "http://142.93.40.117:11434",
+      model: "codellama:code",
       verbose: false,
     });
     return nameOllama!

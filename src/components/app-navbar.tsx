@@ -61,7 +61,7 @@ export default function AppNavbar({
     console.log(i, activeModel, availableModels);
     setActiveModel(availableModels[i].name);
     const newOllama = new ChatOllama({
-      baseUrl: "http://localhost:11434",
+      baseUrl: "http://142.93.40.117:11434",
       model: availableModels[i]?.name,
     });
     //store in local storage
